@@ -21,7 +21,18 @@ class ViewController: UIViewController {
         points = 100 - abs(targetValue - Int(slider.value))
         //FIXME: - add conditions for the corresponding title
         let message = "You Scored \(points)"
-        let title = "Perfect !"
+        if points == 100 {
+            title = "Perfect!"
+        }
+        else if points >= 96 {
+            title = "You almost had it!"
+        }
+        else if points >= 87 {
+            title = "Pretty good!"
+        }
+        else {
+            title = "Not even close..."
+        }
         let alert = UIAlertController(title: title, message: message,  preferredStyle: .alert)
         let action = UIAlertAction(title: title, style: .default){_ in
             self.updateValue()
